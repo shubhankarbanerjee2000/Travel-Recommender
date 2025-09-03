@@ -359,6 +359,10 @@ elif page == "Chatbot":
 
     st.session_state.chat.append({"role": "assistant", "content": full_text})
 
+  # Prompt ideas moved here (only visible on Chatbot page)
+  with st.expander("Prompt ideas"):
+    st.write("- Estimate min/median/max price in local currency for a 2-hour food tour, this month, with 2 bookable examples.")
+    st.write("- Two lesser-known neighborhoods with evening food markets and average dish prices; add one rainy-day activity.")
 
 elif page == "Your Journeys":
   st.subheader("Your Journeys")
@@ -454,8 +458,7 @@ elif page == "What's Happening":
   st.caption("Discover festivals, events and experiences worth travelling for.")
   month_name = st.text_input("Month", "September")
 
-  st.markdown("Below is a quick prompt we send to the Chatbot to fetch global highlights for the selected month:")
-  st.code(f'Check notable global events in {month_name}', language="python")
+  st.markdown("_We will send a quick prompt we send to the Chatbot to fetch global highlights for the selected month_")
 
   if st.button("Fetch global highlights"):
     with st.spinner("Fetching global events..."):
@@ -498,11 +501,5 @@ elif page == "What's Happening":
             st.experimental_rerun()
         st.divider()
   else:
-    st.info("Click 'Fetch global highlights' to ask the Chatbot for notable events this month.")
-
-# ---------------------------------------
-# Footer prompt ideas (optional)
-# ---------------------------------------
-with st.expander("Prompt ideas"):
-  st.write("- Estimate min/median/max price in local currency for a 2-hour food tour, this month, with 2 bookable examples.")
-  st.write("- Two lesser-known neighborhoods with evening food markets and average dish prices; add one rainy-day activity.")
+    # show plain inline instruction (not an info/alert block)
+    st.write("Click **Fetch global highlights** to ask the Chatbot for notable events this month.")
