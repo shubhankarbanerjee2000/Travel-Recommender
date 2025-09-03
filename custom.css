@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap');
+
+:root {
+    --bg-img: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1650&q=80');
+    --main-text: #111;
+    --muted: #555;
+    --accent: #6b0030; /* darker text for headings */
+    --card-bg: rgba(255, 255, 255, 0.98);
+    --widget-bg: rgba(255, 255, 255, 0.98);
+    --widget-border: rgba(10, 20, 30, 0.08);
+    --button-bg: #ffd6e8; /* light pink for generic buttons/cards */
+    --button-text: #6b0030;
+}
+
+html,
+body,
+[class*="css"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+.stApp {
+    background-image: var(--bg-img);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ensure the same travel background is visible across all pages (including Your Journeys) */
+html, body {
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* sidebar: keep readable but let the background show through slightly */
+.stSidebar {
+  background: rgba(255,255,255,0.88) !important;
+  backdrop-filter: blur(4px);
+}
+
+/* make the main content panel more transparent so the background shows through,
+   but keep readability with blur, subtle border and slightly stronger shadow */
+.block-container {
+    background: rgba(255, 255, 255, 0.72) !important;
+    backdrop-filter: blur(6px) saturate(120%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 10px 30px rgba(10, 20, 30, 0.12);
+    color: var(--main-text);
+}
+
+/* Force readable color for all child elements (fixes hidden white text) */
+.block-container,
+.block-container * {
+    color: var(--main-text) !important;
+    -webkit-text-fill-color: var(--main-text) !important;
+}
+
+/* Widgets: inputs, selects, multiselects, sliders, buttons — visible text & light bg */
+.block-container input,
+.block-container select,
+.block-container textarea,
+.block-container div[role="combobox"],
+.block-container div[role="listbox"],
+.block-container [role="slider"],
+.block-container .stSlider,
+.block-container .stNumberInput input,
+.block-container .stSelectbox,
+.block-container .stMultiSelect,
+.block-container .stMultiselect {
+    color: var(--main-text) !important;
+    -webkit-text-fill-color: var(--main-text) !important;
+    background: var(--widget-bg) !important;
+    border: 1px solid var(--widget-border) !important;
+}
+
+/* Dropdown / option list items and selected tokens */
+.block-container [role="option"],
+.block-container [role="listbox"] * {
+    color: var(--main-text) !important;
+    background: var(--widget-bg) !important;
+}
+
+/* Specific ensures for selectbox/multiselect visible area */
+.block-container .stSelectbox>div,
+.block-container .stMultiselect>div,
+.block-container .stTextInput>div,
+.block-container .stNumberInput>div,
+.block-container .stSlider>div {
+    color: var(--main-text) !important;
+    background: var(--widget-bg) !important;
+}
+
+/* Buttons - ensure contrast */
+.stButton button,
+.btn-book {
+    color: var(--button-text) !important;
+    background-color: var(--button-bg) !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(11, 61, 145, 0.12) !important;
+}
+
+/* Placeholder colors */
+.block-container input::placeholder,
+.block-container textarea::placeholder {
+    color: #8c8c8c !important;
+    opacity: 1 !important;
+}
+
+/* Cards and titles */
+.rec-card {
+    /* slightly more opaque card so content stays readable over stronger background */
+    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,250,250,0.92));
+    padding: 14px;
+    border-radius: 10px;
+    box-shadow: 0 8px 22px rgba(14, 30, 37, 0.10);
+    margin-bottom: 12px;
+}
+
+.rec-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+
+.rec-desc {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.rec-links a {
+    color: #1a73e8;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 6px 0 0;
+    font-size: 13px;
+}
+
+/* Chat message box adjustments (ensure dark text on light bubbles) */
+.stChat,
+.stChatMessage,
+.stChatMessage * {
+    color: var(--main-text) !important;
+    -webkit-text-fill-color: var(--main-text) !important;
+}
+
+/* Buttons / small text */
+.stButton button,
+.btn-book {
+    color: #fff !important;
+}
+
+/* Code / pre blocks remain legible */
+pre,
+code {
+    color: var(--main-text) !important;
+    background: rgba(250, 250, 250, 0.9) !important;
+}
+
+/* Small helpers */
+.stCaption,
+.stExpander,
+.stMarkdown,
+.stText {
+    color: var(--muted) !important;
+}
+
+/* Ensure links stay blue and underlined */
+.block-container a,
+.rec-links a {
+    color: #1a73e8 !important;
+    text-decoration: underline !important;
+}
+
+/* Suggestion card background (very light yellow) */
+.suggest-card{
+  background: #fff9c4; /* very light yellow */
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+  margin-bottom: 8px;
+}
+.suggest-card .suggest-desc{
+  color: #444;
+  margin-top:6px;
+  font-size: 14px;
+}
+
+/* Make the button immediately following a suggest-card light-yellow with dark text */
+.suggest-card + div .stButton button,
+.suggest-card + div button {
+  background: #fff9c4 !important;
+  color: #6b0030 !important;
+  border: none !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04) !important;
+}
+
+/* Global button styling — use light pink for other buttons (recommendations etc.) */
+.stButton button,
+.btn-book {
+    background-color: var(--button-bg) !important;
+    color: var(--button-text) !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(11, 61, 145, 0.06) !important;
+}
+
+/* remove any lingering strong red coloring — ensure CTA links are subtle */
+a.btn-book, .btn-book {
+  background: transparent !important;
+  color: var(--button-text) !important;
+  text-decoration: none !important;
+  padding: 0 !important;
+}
+
+/* ensure suggestion-area links/buttons remain legible */
+.suggest-card + .stButton button {
+  margin-top: 6px;
+}
