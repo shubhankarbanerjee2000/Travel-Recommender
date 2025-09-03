@@ -14,7 +14,7 @@ import re
 # ---------------------------------------
 st.set_page_config(page_title="AI Travel Buddy !", page_icon="✈️", layout="wide")
 
-def load_and_inject_css(path="custom.css"):
+def load_and_inject_css(path="assets/custom.css"):
   try:
     with open(path, "r", encoding="utf-8") as f:
       css = f.read()
@@ -23,7 +23,7 @@ def load_and_inject_css(path="custom.css"):
     st.warning(f"CSS file not found: {path} — continuing without custom styles.")
 
 # call right away to apply styles (adjust path if you place the file elsewhere)
-load_and_inject_css("custom.css")
+load_and_inject_css("assets/custom.css")
 
 # --- Load Groq API key from Streamlit Secrets ---
 if "GROQ_API_KEY" not in st.secrets:
